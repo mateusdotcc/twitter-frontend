@@ -1,0 +1,13 @@
+export { default as TwitterLogo } from 'assets/svg/twitter-logo.svg';
+export { default as Search } from 'assets/svg/icon-search.svg';
+export { default as Users } from 'assets/svg/icon-users.svg';
+export { default as Comment } from 'assets/svg/icon-comment.svg';
+export { default as ArrowRight } from 'assets/svg/icon-arrow-right.svg';
+export { default as Cog } from 'assets/svg/icon-cog.svg';
+export { default as Letter } from 'assets/svg/icon-letter.svg';
+export { default as Share } from 'assets/svg/icon-share.svg';
+export { default as Loop } from 'assets/svg/icon-loop.svg';
+export { default as Chat } from 'assets/svg/icon-chat.svg';
+export { default as Heart } from 'assets/svg/icon-heart.svg';
+export { default as SingOut } from 'assets/svg/icon-sign-out.svg';
+export { default as Star } from 'assets/svg/icon-star.svg';

@@ -1,0 +1,10 @@
+{
+  "title": "If you want to define some things ;)",
+  "placeholder": {
+    "username": "Write a nickname…"
+  },
+  "button": {
+    "letsGo": "Lets'go!",
+    "skip": "Leave it for later"
+  }
+}

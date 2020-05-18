@@ -1,0 +1,12 @@
+{
+  "whatsHappening": "What's happening",
+  "button": {
+    "tweet": "tweet"
+  },
+  "placeholder": {
+    "tweet": "Write"
+  },
+  "following": "Following",
+  "followers": "Followers",
+  "emptyTweets": "Write your first tweet!"
+}

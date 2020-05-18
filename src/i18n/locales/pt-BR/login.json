@@ -1,0 +1,13 @@
+{
+  "title": "See what’s happening in the world right now",
+  "subtitle": "Join Twitter today!",
+  "login": "Log In",
+  "list": [
+    "Follow your interests",
+    "Hear what people are talking about",
+    "Join the conversation"
+  ],
+  "placeholder": {
+    "login": "Your GitHub Username"
+  }
+}
