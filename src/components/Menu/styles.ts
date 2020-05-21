@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { COLORS } from 'styles/colors';
 import { Medium, Bold } from 'styles/typography';
+import { breakpoints } from 'styles/breakpoints';
 
 interface ProfileProps {
   show?: boolean;
@@ -14,6 +15,19 @@ export const Container = styled.div`
   flex-direction: column;
   width: 27.2rem;
   height: 100%;
+
+  @media ${breakpoints.mobile} {
+    background-color: ${COLORS.onBackground};
+
+    flex-direction: row;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 0 2rem;
+    width: 100%;
+    height: 5rem;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -43,13 +57,40 @@ export const Nav = styled.nav`
   a {
     text-decoration: none;
   }
+
+  @media ${breakpoints.mobile} {
+    padding: 0;
+    flex: 1;
+
+    ul {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 6rem;
+      width: 100%;
+      height: 5rem;
+    }
+
+    li:not(:last-child) {
+      margin: 0;
+    }
+  }
 `;
 
 export const NavProfile = styled.nav`
   position: fixed;
   bottom: 100px;
 
-  > button {
+  @media ${breakpoints.mobile} {
+    position: relative;
+    bottom: 0;
+
+    > button {
+      min-width: 35px;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+    }
   }
 `;
 

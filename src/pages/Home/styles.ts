@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { COLORS } from 'styles/colors';
+import { breakpoints } from 'styles/breakpoints';
 
 export const Container = styled.main`
   background-color: ${COLORS.backgroundSecondary};
@@ -12,12 +13,24 @@ export const Container = styled.main`
   min-height: calc(100vh - 10rem);
   height: 100%;
   border-radius: 3rem;
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+    padding: 2rem 2rem 3rem 2rem;
+    margin: 2rem 2rem 7rem 2rem;
+  }
 `;
 
 export const ContainerTweet = styled.div`
   margin-left: 1.7rem;
   max-width: 600px;
   width: 100%;
+
+  @media ${breakpoints.mobile} {
+    margin-left: 0;
+    max-width: 100%;
+    min-width: 100%;
+  }
 `;
 
 export const ListTweets = styled.ul`
@@ -28,6 +41,10 @@ export const ListTweets = styled.ul`
     &:not(:last-child) {
       margin-bottom: 3.7rem;
     }
+  }
+
+  @media ${breakpoints.mobile} {
+    padding: 0;
   }
 `;
 
@@ -44,6 +61,17 @@ export const ListFeatured = styled.ul`
   li {
     &:not(:last-child) {
       margin-bottom: 5rem;
+    }
+  }
+
+  @media ${breakpoints.mobile} {
+    margin-top: 6rem;
+    margin-left: 0;
+    max-width: 100%;
+    min-width: 100%;
+
+    > h2 {
+      margin-bottom: 4rem;
     }
   }
 `;

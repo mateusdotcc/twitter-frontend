@@ -102,17 +102,17 @@ const Login: React.FC = () => {
           <List>
             <li>
               <img src={Search} alt={t('list.0')} />
-              {t('list.0')}
+              <h3>{t('list.0')}</h3>
             </li>
 
             <li>
               <img src={Users} alt={t('list.1')} />
-              {t('list.1')}
+              <h3>{t('list.1')}</h3>
             </li>
 
             <li>
               <img src={Comment} alt={t('list.2')} />
-              {t('list.2')}
+              <h3>{t('list.2')}</h3>
             </li>
           </List>
 

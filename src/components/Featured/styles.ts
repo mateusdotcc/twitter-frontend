@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS } from 'styles/colors';
 import { Bold } from 'styles/typography';
+import { breakpoints } from 'styles/breakpoints';
 
 export const Title = styled.h2`
   color: ${COLORS.onSecondary};
@@ -15,6 +16,10 @@ export const Title = styled.h2`
   margin-bottom: 1.7rem;
   font-size: 1.6rem;
   transition: color 0.25s;
+
+  @media ${breakpoints.mobile} {
+    width: calc(100% - 11rem);
+  }
 `;
 
 export const Count = styled.span`
@@ -60,4 +65,5 @@ export const Container = styled.article`
 export const Content = styled.span`
   flex: 1;
   margin-left: 1.5rem;
+  overflow: hidden;
 `;

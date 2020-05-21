@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 
 import { COLORS } from 'styles/colors';
+import { breakpoints } from 'styles/breakpoints';
 
 import { Button } from 'components';
 
-export const TweetButton = styled(Button)``;
+export const TweetButton = styled(Button)`
+  align-self: flex-end;
+  margin-top: 1rem;
+  width: 14.5rem;
+
+  @media ${breakpoints.mobile} {
+    width: 100%;
+  }
+`;
 
 export const Container = styled.form`
   background-color: ${COLORS.onBackground};
@@ -18,10 +27,9 @@ export const Container = styled.form`
   border-radius: 3.5rem;
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
 
-  ${TweetButton} {
-    align-self: flex-end;
-    margin-top: 1rem;
-    width: 14.5rem;
+  @media ${breakpoints.mobile} {
+    padding: 2rem;
+    border-radius: 2rem;
   }
 `;
 
@@ -40,4 +48,8 @@ export const TextArea = styled.textarea`
   border: 0;
   background-color: transparent;
   resize: none;
+
+  @media ${breakpoints.mobile} {
+    height: 12rem;
+  }
 `;

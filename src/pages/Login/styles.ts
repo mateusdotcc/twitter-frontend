@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { COLORS } from 'styles/colors';
+import { breakpoints } from 'styles/breakpoints';
 
 export const Icon = styled.img``;
 
@@ -14,6 +15,10 @@ export const Drawing = styled.img`
   position: absolute;
   top: -80px;
   right: 25px;
+
+  @media ${breakpoints.mobile} {
+    display: none;
+  }
 `;
 
 export const Container = styled.main`
@@ -26,9 +31,23 @@ export const Container = styled.main`
 
     margin-bottom: 3.1rem;
   }
+
+  @media ${breakpoints.mobile} {
+    margin: 5rem 0;
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
 `;
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  max-width: 300px;
+`;
 
 export const Form = styled.form`
   display: flex;
@@ -38,13 +57,30 @@ export const Form = styled.form`
     margin-left: 2.3rem;
     width: 16rem;
   }
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+
+    button {
+      margin: 2rem 0 0 0;
+      width: 100%;
+    }
+  }
 `;
 
 export const List = styled.ul`
   li {
+    display: flex;
+    flex-direction: row;
+
     &:not(:last-child) {
       margin-bottom: 1.7rem;
     }
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    font-weight: normal;
   }
 
   img {
@@ -60,4 +96,9 @@ export const Footer = styled.footer`
   margin: 6.2rem auto 0 auto;
   padding: 0 4.5rem;
   width: 54rem;
+
+  @media ${breakpoints.mobile} {
+    flex-direction: column;
+    width: 100%;
+  }
 `;

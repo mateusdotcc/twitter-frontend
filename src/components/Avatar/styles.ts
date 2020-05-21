@@ -5,6 +5,7 @@ import { COLORS } from 'styles/colors';
 export const Container = styled.button.attrs({ type: 'button' })`
   background-color: ${COLORS.onBackground};
 
+  min-width: 45px;
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 1.5rem;

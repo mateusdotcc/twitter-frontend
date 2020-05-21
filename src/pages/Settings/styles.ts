@@ -3,6 +3,7 @@ import { lighten } from 'polished';
 
 import { Button } from 'components';
 import { COLORS } from 'styles/colors';
+import { breakpoints } from 'styles/breakpoints';
 
 interface FileProps {
   width?: string;
@@ -12,6 +13,8 @@ interface FileProps {
 export const ButtonSkip = styled(Button)``;
 
 export const Container = styled.main`
+  margin: 5rem 0;
+
   button {
     margin: 3.7rem auto 0;
     width: 20rem;
@@ -19,6 +22,16 @@ export const Container = styled.main`
 
   ${ButtonSkip} {
     width: 24.4rem;
+  }
+
+  @media ${breakpoints.mobile} {
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+    }
   }
 `;
 
@@ -33,11 +46,19 @@ export const Form = styled.form`
     margin-bottom: 3.8rem;
     border: 0;
   }
+
+  @media ${breakpoints.mobile} {
+    > div {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 `;
 
-export const DropContainer = styled.div.attrs({ className: 'dropzone' }) <
+export const DropContainer = styled.div.attrs({ className: 'dropzone' })<
   FileProps
-  >`
+>`
   width: ${({ width = '15rem' }) => width};
   height: ${({ height = '15rem' }) => height};
   background-color: ${COLORS.tertiary};

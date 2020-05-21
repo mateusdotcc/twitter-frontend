@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS } from 'styles/colors';
 import { Bold } from 'styles/typography';
+import { breakpoints } from 'styles/breakpoints';
 
 export const Container = styled.article`
   display: flex;
@@ -15,6 +16,11 @@ export const Content = styled.div`
   justify-content: space-between;
   margin-top: 1.5rem;
   margin-left: 2.5rem;
+
+  @media ${breakpoints.mobile} {
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+  }
 `;
 
 export const Username = styled.strong`
@@ -34,6 +40,12 @@ export const Username = styled.strong`
     margin-left: 0.5rem;
     font-size: 1.2rem;
     font-weight: normal;
+  }
+
+  @media ${breakpoints.mobile} {
+    span {
+      display: none;
+    }
   }
 `;
 
