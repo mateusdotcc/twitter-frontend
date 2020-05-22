@@ -9,7 +9,7 @@ import * as UserActions from 'store/modules/user/actions';
 
 import { UserState } from 'store/modules/user/types';
 
-import { ArrowRight } from 'styles/icons';
+import { ArrowRight, Image } from 'styles/icons';
 import IconAvatar from 'assets/svg/avatar.svg';
 import IconCover from 'assets/svg/cover.svg';
 
@@ -34,13 +34,13 @@ const Settings: React.FC = () => {
 
   const loading = useSelector((state: UserState) => state.data?.loading);
 
-  // function handleChangeAvatar(file: any): void {
-  //   setAvatar(file[0]);
-  // }
+  function handleChangeAvatar(file: any): void {
+    // setAvatar(file[0]);
+  }
 
-  // function handleChangeCover(file: any): void {
-  //   setCover(file[0]);
-  // }
+  function handleChangeCover(file: any): void {
+    // setCover(file[0]);
+  }
 
   async function handleSubmit(
     event: FormEvent<HTMLFormElement>,
@@ -79,22 +79,24 @@ const Settings: React.FC = () => {
           <Form onSubmit={handleSubmit}>
             <div>
               <DropContainer>
-                <img src={IconAvatar} alt="" />
-                {/* <input
+                <img className={'icon-over'} src={Image} alt="" />
+                <img src={user?.avatar || IconAvatar} alt="User Avatar" />
+                <input
                   type="file"
                   accept="image/*"
                   name="file-0"
                   onChange={(event) => handleChangeAvatar(event.target.files)}
-                /> */}
+                />
               </DropContainer>
               <DropContainer width="27.9rem">
-                <img src={IconCover} alt="" />
-                {/* <input
+                <img className={'icon-over'} src={Image} alt="" />
+                <img src={user?.cover || IconCover} alt="User cover image" />
+                <input
                   type="file"
                   accept="image/*"
                   name="file-1"
                   onChange={(event) => handleChangeCover(event.target.files)}
-                /> */}
+                />
               </DropContainer>
             </div>
 

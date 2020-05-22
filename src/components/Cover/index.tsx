@@ -3,13 +3,15 @@ import React from 'react';
 import { Container } from './styles';
 
 interface Props {
-  photo?: string;
+  image?: string;
 }
 
 const Cover: React.FC<Props> = (props: Props) => {
-  const { photo = '' } = props;
+  const { image = '' } = props;
 
-  return <Container>{photo && <img src={photo} alt="" />}</Container>;
+  return (
+    <Container>{image && <img src={image} alt="User cover image" />}</Container>
+  );
 };
 
 export default Cover;

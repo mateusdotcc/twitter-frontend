@@ -29,10 +29,6 @@ export default createGlobalStyle`
     background-color: ${lighten(0.2, COLORS.onPrimary)};
   }
 
-  #root {
-
-  }
-
   button {
     border: 0;
     user-select: none;
@@ -48,6 +44,7 @@ export default createGlobalStyle`
   img {
     max-width: 100%;
     user-select: none;
+    object-fit: cover;
   }
 
   input[type=text] {

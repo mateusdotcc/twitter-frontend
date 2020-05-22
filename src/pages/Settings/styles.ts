@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lighten } from 'polished';
+import { lighten, rgba } from 'polished';
 
 import { Button } from 'components';
 import { COLORS } from 'styles/colors';
@@ -62,7 +62,6 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })<
   width: ${({ width = '15rem' }) => width};
   height: ${({ height = '15rem' }) => height};
   background-color: ${COLORS.tertiary};
-  opacity: 0.4;
 
   display: flex;
   align-items: center;
@@ -70,12 +69,32 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })<
   flex-direction: column;
   position: relative;
   border-radius: 3rem;
+  overflow: hidden;
   transition: background-color 0.25s;
-  pointer-events: none;
-  cursor: auto;
+  cursor: pointer;
+
+  &:after {
+    background-color: ${rgba(COLORS.onPrimary, 0)};
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.25s;
+  }
 
   &:hover {
     background-color: ${lighten(0.1, COLORS.onPrimary)};
+
+    .icon-over {
+      opacity: 1;
+    }
+
+    &:after {
+      background-color: ${rgba(COLORS.onPrimary, 0.5)};
+    }
   }
 
   input {
@@ -86,5 +105,15 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })<
     width: 100%;
     height: 100%;
     cursor: pointer;
+  }
+
+  .icon-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.25s;
   }
 `;

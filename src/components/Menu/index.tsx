@@ -78,7 +78,7 @@ const Menu: React.FC = () => {
         />
 
         <Profile ref={refProfile} show={openProfile}>
-          <Cover />
+          <Cover image={user?.cover} />
 
           <Title>{user?.name}</Title>
           <Username>{`@${user?.user}`}</Username>

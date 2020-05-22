@@ -11,3 +11,4 @@ export { default as Chat } from 'assets/svg/icon-chat.svg';
 export { default as Heart } from 'assets/svg/icon-heart.svg';
 export { default as SingOut } from 'assets/svg/icon-sign-out.svg';
 export { default as Star } from 'assets/svg/icon-star.svg';
+export { default as Image } from 'assets/svg/icon-image.svg';
