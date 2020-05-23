@@ -12,6 +12,10 @@ export const Container = styled.button.attrs({ type: 'button' })`
   overflow: hidden;
   box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
 
+  img {
+    object-fit: cover;
+  }
+
   &:disabled {
     cursor: auto;
   }

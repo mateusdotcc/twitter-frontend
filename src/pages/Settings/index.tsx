@@ -4,42 +4,47 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import api from 'services/api';
-
 import * as UserActions from 'store/modules/user/actions';
-
 import { UserState } from 'store/modules/user/types';
 
-import { ArrowRight, Image } from 'styles/icons';
-import IconAvatar from 'assets/svg/avatar.svg';
-import IconCover from 'assets/svg/cover.svg';
-
-import { Centralized, Modal, H1, Button } from 'components';
-
-import { Container, Form, ButtonSkip, DropContainer } from './styles';
+import { ArrowRight, Image, Close } from 'styles/icons';
+import { Centralized, Modal, H1, Button, Alert } from 'components';
+import {
+  Container,
+  Form,
+  ButtonSkip,
+  DropContainer,
+  WrapDropContainer,
+  ButtonRemove,
+} from './styles';
 
 const Settings: React.FC = () => {
-  const { t } = useTranslation(['settings']);
+  const { t } = useTranslation(['common', 'settings']);
 
   const history = useHistory();
-
   const dispatch = useDispatch();
 
-  // const [avatar, setAvatar] = useState<File | null>();
-
-  // const [cover, setCover] = useState<File | null>();
-
+  const [avatarFile, setAvatarFile] = useState<File | any>('');
+  const [coverFile, setCoverFile] = useState<File | any>('');
+  const [avatarPreview, setAvatarPreview] = useState('');
+  const [coverPreview, setCoverPreview] = useState('');
   const [username, setUsername] = useState('');
+  const [error, setError] = useState(false);
 
   const user = useSelector((state: UserState) => state.data?.user);
-
   const loading = useSelector((state: UserState) => state.data?.loading);
 
-  function handleChangeAvatar(file: any): void {
-    // setAvatar(file[0]);
-  }
+  function handleChange(input: any): void {
+    let file = input.files[0];
+    let preview = URL.createObjectURL(file);
 
-  function handleChangeCover(file: any): void {
-    // setCover(file[0]);
+    if (input.name === 'avatar') {
+      setAvatarFile(file);
+      return setAvatarPreview(preview);
+    }
+
+    setCoverFile(file);
+    setCoverPreview(preview);
   }
 
   async function handleSubmit(
@@ -51,18 +56,35 @@ const Settings: React.FC = () => {
       dispatch(UserActions.toggleLoading());
 
       const data = new FormData();
-      // if (avatar) data.append('file', avatar, avatar.name);
+
       if (username) data.append('name', username);
+      if (avatarPreview) data.append('avatar', avatarFile);
+      if (coverPreview) data.append('cover', coverFile);
 
-      await api.put(`/users/${user?._id}`, data);
+      const response = await api.put(`/users/${user?._id}`, data);
 
-      dispatch(UserActions.updateUser({ name: username }));
+      const { name, avatar, cover } = response.data;
+
+      dispatch(
+        UserActions.updateUser({
+          name,
+          avatar,
+          cover,
+        }),
+      );
 
       setUsername('');
 
       history.push('/home');
     } catch (error) {
       console.log('ERROR', error);
+
+      dispatch(UserActions.toggleLoading());
+
+      setError(true);
+      setUsername('');
+      setAvatarPreview('');
+      setCoverPreview('');
     }
   }
 
@@ -74,59 +96,79 @@ const Settings: React.FC = () => {
     <Container>
       <Centralized>
         <Modal>
-          <H1>{t('title')}</H1>
+          <H1>{t('settings:title')}</H1>
 
           <Form onSubmit={handleSubmit}>
             <div>
               <DropContainer>
-                <img className={'icon-over'} src={Image} alt="" />
-                <img src={user?.avatar || IconAvatar} alt="User Avatar" />
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="file-0"
-                  onChange={(event) => handleChangeAvatar(event.target.files)}
-                />
+                {avatarPreview && (
+                  <ButtonRemove onClick={() => setAvatarPreview('')}>
+                    <img src={Close} alt="Remove" />
+                  </ButtonRemove>
+                )}
+                <WrapDropContainer>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    name="avatar"
+                    onChange={(event) => handleChange(event.target)}
+                  />
+                  <img className={'icon-over'} src={Image} alt="Icon Add" />
+                  <img
+                    src={avatarPreview ? avatarPreview : user?.avatar}
+                    alt="User Avatar"
+                  />
+                </WrapDropContainer>
               </DropContainer>
               <DropContainer width="27.9rem">
-                <img className={'icon-over'} src={Image} alt="" />
-                <img src={user?.cover || IconCover} alt="User cover image" />
-                <input
-                  type="file"
-                  accept="image/*"
-                  name="file-1"
-                  onChange={(event) => handleChangeCover(event.target.files)}
-                />
+                {coverPreview && (
+                  <ButtonRemove onClick={() => setCoverPreview('')}>
+                    <img src={Close} alt="Remove" />
+                  </ButtonRemove>
+                )}
+                <WrapDropContainer>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    name="cover"
+                    onChange={(event) => handleChange(event.target)}
+                  />
+                  <img className={'icon-over'} src={Image} alt="Icon Add" />
+                  <img
+                    src={coverPreview ? coverPreview : user?.cover}
+                    alt="User cover"
+                  />
+                </WrapDropContainer>
               </DropContainer>
             </div>
-
             <input
               type="text"
               value={username}
-              placeholder={t('placeholder.username')}
+              placeholder={t('settings:placeholder.username')}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setUsername(e.target.value);
               }}
             />
-
-            <Button
-              type="submit"
-              loading={loading}
-              disabled={username.length === 0}
-            >
-              {t('button.letsGo')}
+            <Button type="submit" loading={loading}>
+              {avatarPreview || coverPreview || username.length > 0
+                ? t('settings:button.update')
+                : t('settings:button.letsGo')}
             </Button>
           </Form>
         </Modal>
-
         <ButtonSkip
           variant="secondary"
           suffix={ArrowRight}
           onClick={handleSkip}
         >
-          {t('button.skip')}
+          {t('settings:button.skip')}
         </ButtonSkip>
       </Centralized>
+
+      <Alert show={error}>
+        <h2>{t('alerts.error')}</h2>
+        <Button onClick={() => setError(false)}>{t('buttons.okay')}</Button>
+      </Alert>
     </Container>
   );
 };

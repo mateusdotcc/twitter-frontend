@@ -8,3 +8,4 @@ export { default as Cover } from './Cover';
 export { default as FormTweet } from './FormTweet';
 export { default as Tweet } from './Tweet';
 export { default as Featured } from './Featured';
+export { default as Alert } from './Alert/Alert';

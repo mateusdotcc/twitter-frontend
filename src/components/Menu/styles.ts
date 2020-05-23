@@ -66,7 +66,7 @@ export const Nav = styled.nav`
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding-right: 6rem;
+      padding-right: 10rem;
       width: 100%;
       height: 5rem;
     }
@@ -187,6 +187,7 @@ export const List = styled.ul`
     img {
       margin-right: 1rem;
       width: 1.4rem;
+      object-fit: cover;
     }
   }
 

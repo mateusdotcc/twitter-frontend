@@ -44,7 +44,6 @@ export default createGlobalStyle`
   img {
     max-width: 100%;
     user-select: none;
-    object-fit: cover;
   }
 
   input[type=text] {

@@ -35,11 +35,11 @@ const Button: React.FC<Props> = (props: Props) => {
       {!loading ? (
         <>
           {children}
-          {suffix && <img src={suffix} alt="" />}
+          {suffix && <img src={suffix} alt="Loading..." />}
         </>
       ) : (
-          <CircleSpinner size={20} />
-        )}
+        <CircleSpinner size={20} />
+      )}
     </Container>
   );
 };

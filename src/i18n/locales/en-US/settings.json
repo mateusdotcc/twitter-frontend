@@ -5,6 +5,7 @@
   },
   "button": {
     "letsGo": "Lets'go!",
+    "update": "Save",
     "skip": "Leave it for later"
   }
 }

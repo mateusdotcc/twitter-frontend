@@ -29,6 +29,7 @@ export const Container = styled.form`
 
   @media ${breakpoints.mobile} {
     padding: 2rem;
+    max-width: 100%;
     border-radius: 2rem;
   }
 `;

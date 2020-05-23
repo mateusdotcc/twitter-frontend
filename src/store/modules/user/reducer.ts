@@ -13,11 +13,14 @@ export const data = (
     case ActionTypes.ADD_USER:
       return { ...state, user: action.user };
     case ActionTypes.UPDATE_USER:
+      console.log(action.data.cover);
       return {
         loading: false,
         user: {
           ...state.user,
           name: action.data.name,
+          avatar: action.data.avatar,
+          cover: action.data.cover,
         },
       };
     case ActionTypes.ADD_TWEET:

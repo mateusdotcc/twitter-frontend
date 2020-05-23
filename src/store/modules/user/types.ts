@@ -38,8 +38,9 @@ export interface ToggleLoading {
 }
 
 export interface UserUpdate {
-  file?: File;
   name?: string;
+  avatar?: string;
+  cover?: string;
 }
 
 export interface UpdateUserAction {
