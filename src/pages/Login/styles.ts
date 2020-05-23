@@ -46,7 +46,9 @@ export const Container = styled.main`
 `;
 
 export const Header = styled.header`
-  max-width: 300px;
+  @media ${breakpoints.mobile} {
+    max-width: 300px;
+  }
 `;
 
 export const Form = styled.form`
@@ -99,6 +101,7 @@ export const Footer = styled.footer`
 
   @media ${breakpoints.mobile} {
     flex-direction: column;
+    max-width: 400px;
     width: 100%;
   }
 `;

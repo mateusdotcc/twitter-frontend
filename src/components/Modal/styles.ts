@@ -13,6 +13,7 @@ export const Container = styled.div`
 
   @media ${breakpoints.mobile} {
     padding: 4rem 2rem;
+    max-width: 500px;
     width: calc(100% - 5rem);
     border-radius: 3rem;
   }

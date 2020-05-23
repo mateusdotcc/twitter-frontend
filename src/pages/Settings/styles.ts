@@ -27,6 +27,7 @@ export const Container = styled.main`
 
   @media ${breakpoints.mobile} {
     h1 {
+      max-width: 300px;
       text-align: center;
     }
 

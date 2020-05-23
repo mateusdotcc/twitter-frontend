@@ -132,6 +132,15 @@ export const Profile = styled.div<ProfileProps>`
       visibility: visible;
       opacity: 1;
     `}
+
+  @media ${breakpoints.mobile} {
+    left: -90px;
+    border-bottom-right-radius: 1rem;
+
+    &:after {
+      left: 90%;
+    }
+  }
 `;
 
 export const Title = styled.h1`
