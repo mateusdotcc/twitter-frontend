@@ -7,7 +7,7 @@ import { Loop, Chat, Heart } from 'styles/icons';
 
 import { Avatar } from 'components';
 
-import { Container, Content, Username, Message, List } from './styles';
+import { Container, Content, Username, Message, List } from './Tweet.styled';
 
 interface Props {
   message: string;

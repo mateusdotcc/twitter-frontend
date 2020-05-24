@@ -16,7 +16,7 @@ import {
   ListTweets,
   ListFeatured,
   Empty,
-} from './styles';
+} from './Home.styled';
 
 interface RequestTrendings {
   data: [];

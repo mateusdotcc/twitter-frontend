@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container } from './Avatar.styled';
 
 interface Props {
   image?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CircleSpinner } from 'react-spinners-kit';
 
-import { Container } from './styles';
+import { Container } from './Button.styled';
 
 interface Props {
   type?: 'button' | 'submit';

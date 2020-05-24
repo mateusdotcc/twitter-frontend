@@ -16,7 +16,7 @@ import {
   DropContainer,
   WrapDropContainer,
   ButtonRemove,
-} from './styles';
+} from './Settings.styled';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation(['common', 'settings']);

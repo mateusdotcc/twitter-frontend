@@ -22,7 +22,7 @@ import {
   Footer,
   List,
   Drawing,
-} from './styles';
+} from './Login.styled';
 
 const Login: React.FC = () => {
   const history = useHistory();

@@ -4,7 +4,13 @@ import { Star } from 'styles/icons';
 
 import { Avatar } from 'components';
 
-import { Container, Content, Title, Count, Description } from './styles';
+import {
+  Container,
+  Content,
+  Title,
+  Count,
+  Description,
+} from './Featured.styled';
 
 interface Trending {
   name: string;

@@ -21,7 +21,7 @@ import {
   List,
   ListFollow,
   Button,
-} from './styles';
+} from './Menu.styled';
 
 const Menu: React.FC = () => {
   const history = useHistory();

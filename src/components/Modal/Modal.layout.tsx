@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container } from './Modal.styled';
 
 interface Props {
   children: React.ReactNode;

@@ -9,7 +9,7 @@ import { UserState } from 'store/modules/user/types';
 
 import { Avatar } from 'components';
 
-import { Container, Content, TextArea, TweetButton } from './styles';
+import { Container, Content, TextArea, TweetButton } from './FormTweet.styled';
 
 const FormTweet: React.FC = () => {
   const dispatch = useDispatch();
